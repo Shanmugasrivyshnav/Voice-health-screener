@@ -1,6 +1,8 @@
 export const getUsers = async () => {
-  const response = await fetch("http://localhost:5000/api/users");
-
+  const response = await fetch(
+    "https://voice-health-screener-s8c8.onrender.com/api/users",
+  );
+  // http://localhost:5000
   if (!response.ok) {
     throw new Error("Failed to fetch users");
   }
@@ -9,13 +11,16 @@ export const getUsers = async () => {
 };
 
 export const createUser = async (user) => {
-  const response = await fetch("http://localhost:5000/api/users", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    "https://voice-health-screener-s8c8.onrender.com/api/users",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
     },
-    body: JSON.stringify(user),
-  });
+  );
 
   if (!response.ok) {
     throw new Error("Failed to create user");
